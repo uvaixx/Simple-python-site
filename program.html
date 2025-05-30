@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Program</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    pre {
+      background-color: #222;
+      color: #0f0;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Python Program: Polynomial Addition</h1>
+  <pre>
+def add(A, B, m, n):
+    size = max(m, n)
+    sum_poly = [0 for i in range(size)]
+    
+    for i in range(m):
+        sum_poly[i] = A[i]
+    
+    for i in range(n):
+        sum_poly[i] += B[i]
+    
+    return sum_poly
+
+def print_poly(poly, n):
+    for i in range(n):
+        print(poly[i], end="")
+        if i != 0:
+            print(f"x^{i}", end="")
+        if i != n - 1:
+            print(" + ", end="")
+    print()
+
+if __name__ == '__main__':
+    A = [5, 0, 10, 6]    # 6x^3 + 10x^2 + 5
+    B = [1, 2, 4]        # 4x^2 + 2x + 1
+    m = len(A)
+    n = len(B)
+
+    print("First Polynomial:")
+    print_poly(A, m)
+
+    print("Second Polynomial:")
+    print_poly(B, n)
+
+    sum_result = add(A, B, m, n)
+    size = max(m, n)
+
+    print("Sum Polynomial:")
+    print_poly(sum_result, size)
+  </pre>
+</body>
+</html>
